@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .screen {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-100">
+
+    <!-- Header with Navigation -->
+    <div class="bg-blue-600 text-white p-4 w-full flex justify-between items-center">
+        <div class="flex justify-center space-x-8">
+           <a href="index.html"> <button id="home-btn" class="font-bold text-lg hover:text-gray-300">Weather Dashboard</button></a>
+        </div>
+       <a href="setting.html"> <button id="settings-btn" class="p-2 hover:bg-blue-500 rounded">
+            ⚙️ <!-- Settings Icon -->
+        </button></a>
+    </div>
+
+    <!-- Home Screen (Weather Dashboard) -->
+    <div id="home-screen" class="min-h-screen flex flex-col items-center p-6 active">
+        <div class="w-full max-w-md mb-6">
+            <input type="text" placeholder="Enter Location"
+                class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+        <div class="mt-6 text-center">
+            <h2 class="text-3xl font-bold">Current Weather</h2>
+            <p class="text-xl mt-2">Location: <span class="font-semibold">Lahore</span></p>
+            <p class="text-lg">Temperature: 22°C</p>
+            <p class="text-lg">Humidity: 60%</p>
+            <p class="text-lg">Wind Speed: 10 km/h</p>
+        </div>
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold">Mon</h3>
+                <p>22°C</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold">Tue</h3>
+                <p>20°C</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold">Wed</h3>
+                <p>21°C</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold">Thu</h3>
+                <p>23°C</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold">Fri</h3>
+                <p>24°C</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold">Sat</h3>
+                <p>25°C</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h3 class="font-semibold">Sun</h3>
+                <p>26°C</p>
+            </div>
+        </div>
+        <div class="mt-6 flex space-x-4">
+            <button class="bg-blue-500 text-white p-3 rounded-md">Save as Favorite</button>
+            <button class="bg-green-500 text-white p-3 rounded-md">Weather Alerts</button>
+            <button class="bg-yellow-500 text-white p-3 rounded-md">Weather Map</button>
+        </div>
+    </div>
+
+   
+    <script>
+        document.getElementById("settings-btn").addEventListener("click", function () {
+            document.getElementById("home-screen").classList.remove("active");
+            document.getElementById("settings-screen").classList.add("active");
+        });
+        
+        document.getElementById("close-settings").addEventListener("click", function () {
+            document.getElementById("settings-screen").classList.remove("active");
+            document.getElementById("home-screen").classList.add("active");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .screen {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-100">
+
+    <!-- Header with Navigation -->
+    <div class="bg-blue-600 text-white p-4 w-full flex justify-between items-center">
+        <div class="flex justify-center space-x-8">
+           <a href="index.html"><button id="home-btn" class="font-bold text-lg hover:text-gray-300">Weather Dashboard</button></a> 
+        </div>
+       <a href="setting.html"> <button id="settings-btn" class="p-2 hover:bg-blue-500 rounded">
+            ⚙️ <!-- Settings Icon -->
+        </button></a>
+    </div>
+
+    
+    <!-- Settings Screen -->
+    <div id="settings-screen" class="screen min-h-screen bg-gray-100 flex flex-col items-center p-6">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+            <h2 class="text-2xl font-bold text-center mb-6">Settings</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="temp-unit" class="block text-lg font-semibold mb-2">Temperature Unit</label>
+                    <select id="temp-unit" class="w-full p-3 rounded-md border border-gray-300">
+                        <option value="celsius">Celsius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="wind-unit" class="block text-lg font-semibold mb-2">Wind Speed Unit</label>
+                    <select id="wind-unit" class="w-full p-3 rounded-md border border-gray-300">
+                        <option value="km/h">km/h</option>
+                        <option value="mph">mph</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-md">Save Changes</button>
+            </form>
+            <button id="close-settings" class="mt-4 w-full bg-red-500 text-white p-3 rounded-md">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("settings-btn").addEventListener("click", function () {
+            document.getElementById("home-screen").classList.remove("active");
+            document.getElementById("settings-screen").classList.add("active");
+        });
+        
+        document.getElementById("close-settings").addEventListener("click", function () {
+            document.getElementById("settings-screen").classList.remove("active");
+            document.getElementById("home-screen").classList.add("active");
+        });
+    </script>
+</body>
+
+</html>
